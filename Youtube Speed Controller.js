@@ -107,11 +107,14 @@
             const video = document.getElementsByClassName("html5-video-container")[0]
                 .getElementsByClassName("video-stream html5-main-video")[0];
             const duration = video.duration;
-            const adjustedDuration = duration / speed;
+            const currentTime = video.currentTime;
+            const remaining = duration - currentTime;
 
-            const formatedDuration = new Date(adjustedDuration * 1000).toISOString().slice(adjustedDuration >= 3600 ? 11 : 14, 19);
+            const adjustedRemaining = remaining / speed;
 
-            timeElem.textContent = formatedDuration;
+            const formatedRemaining = new Date(adjustedRemaining * 1000).toISOString().slice(adjustedRemaining >= 3600 ? 11 : 14, 19);
+
+            timeElem.textContent = formatedRemaining;
 
             if (speed === currentRate) {
                 btn.classList.add('spd-active');
