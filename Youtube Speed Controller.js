@@ -1,10 +1,12 @@
 // ==UserScript==
 // @name         Youtube Speed Controller
-// @version      2
+// @version      2.1
 // @description  Adds quick video speed controls to the video control bar
 // @author       Duki
-// @match        https://www.youtube.com/*
+// @match        https://www.youtube.com/watch*
 // @grant        none
+// @license      Unlicense
+// @namespace    https://greasyfork.org/users/1412820
 // ==/UserScript==
 
 (function () {
