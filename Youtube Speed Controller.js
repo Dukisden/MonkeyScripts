@@ -30,11 +30,11 @@
                 gap: 2px;
 
                 height: 32px;
-                width: 38px;
+                width: 40px;
 
                 cursor: pointer;
                 border-radius: 4px;
-                background-color: #0005;
+                background-color: #0008;
 
                 .spd-label, .spd-time {
                     display: block;
@@ -43,14 +43,19 @@
                     color: #ddd;
                 }
 
+                .spd-label {
+                    font-size: 11px;
+                }
+
                 .spd-time {
-                    font-size: 0.75em;
+                    font-size: 10px;
                 }
             }
 
             .spd-btn.spd-active {
-                box-shadow: 0 0 0px 2px inset #0004, 0 0 0px 1px #fff3;
-                background-color: #0004;
+                box-shadow: 0 0 0px 3px inset #0004, 0 0 0px 2px #fff5;
+                background-color: #0006;
+                transform: scale(1.1);
             }
         }
     `;
