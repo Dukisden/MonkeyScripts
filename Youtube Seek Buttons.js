@@ -170,13 +170,13 @@ function positionContainer() {
     const button = document.getElementById('seek-button');
     const container = document.getElementById('seek-container');
 
-    const ytApp = document.querySelector('ytd-app');
-    const topBarOffset = ytApp.hasAttribute('fullscreen') ? 0 : document.getElementById('container').offsetHeight;
+    const isFullscreen = document.querySelector('ytd-app').hasAttribute('fullscreen');
+    const isTheater = document.querySelector('.ytp-size-button').dataset.tooltipTitle.includes('Default');
 
-    const theaterBtn = document.querySelector('.ytp-size-button');
-    const sideBarOffset = theaterBtn.dataset.tooltipTitle.includes('Theater') ? 16 : 0;
+    const topBarOffset = isFullscreen ? 0 : document.getElementById('container').offsetHeight;
+    const sideBarOffset = isTheater || isFullscreen ? 0 : 16;
 
-    const hoverFix = 5;
+    const hoverFix = !isTheater && !isFullscreen ? -5 : 5;
     container.style.top = getAbsolutePosition(button).top - topBarOffset + hoverFix + 'px';
     container.style.left = getAbsolutePosition(button).left - sideBarOffset + 'px';
 }
