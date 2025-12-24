@@ -12,7 +12,7 @@
 (function () {
     'use strict';
 
-    const speeds = [0.5, 0.8 , 1, 1.15, 1.3, 1.5, 1.75, 2, 2.5, 3, 6, 10];
+    const speeds = [0.5, 0.8, 1, 1.15, 1.3, 1.5, 1.75, 2, 2.5, 3, 6, 10];
 
     const style = document.createElement('style');
     style.innerHTML = `
