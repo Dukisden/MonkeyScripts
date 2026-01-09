@@ -1,8 +1,8 @@
 // ==UserScript==
-// @name        Youtube seek buttons
-// @match       https://www.youtube.com/watch*
+// @name        Youtube Seek Buttons
+// @match       https://www.youtube.com/*
 // @grant       none
-// @version     1.1
+// @version     1.2
 // @author      Duki
 // @description Add backward/forward buttons to the player bar
 // @license     Unlicense
