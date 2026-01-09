@@ -3,7 +3,7 @@
 // @version      2.1
 // @description  Adds quick video speed controls to the video control bar
 // @author       Duki
-// @match        https://www.youtube.com/watch*
+// @match        https://www.youtube.com/*
 // @grant        none
 // @license      Unlicense
 // @namespace    https://greasyfork.org/users/1412820
@@ -64,15 +64,23 @@
     document.head.appendChild(style);
 
     function setRate(n) {
-        document.getElementsByClassName("html5-video-container")[ 0 ]
-            .getElementsByClassName("video-stream html5-main-video")[ 0 ]
+        document.getElementsByClassName("html5-video-container")[0]
+            .getElementsByClassName("video-stream html5-main-video")[0]
             .playbackRate = n;
     }
 
     function getRate() {
-        return document.getElementsByClassName("html5-video-container")[ 0 ]
-            .getElementsByClassName("video-stream html5-main-video")[ 0 ]
+        return document.getElementsByClassName("html5-video-container")[0]
+            .getElementsByClassName("video-stream html5-main-video")[0]
             .playbackRate;
+    }
+
+    function getRemainingTime() {
+        const video = document.getElementsByClassName("html5-video-container")[0]
+            .getElementsByClassName("video-stream html5-main-video")[0];
+        const duration = video.duration;
+        const currentTime = video.currentTime;
+        return duration - currentTime;
     }
 
     function hasVideo() {
@@ -106,16 +114,16 @@
 
     function updateButtons() {
         const currentRate = getRate();
+        const remaining = getRemainingTime();
+        if (!remaining) {
+            return;
+        }
+
         const buttons = document.querySelectorAll('#spdctrl .spd-btn');
 
         buttons.forEach(btn => {
             const speed = parseFloat(btn.querySelector('.spd-label').textContent);
             const timeElem = btn.querySelector('.spd-time');
-            const video = document.getElementsByClassName("html5-video-container")[0]
-                .getElementsByClassName("video-stream html5-main-video")[0];
-            const duration = video.duration;
-            const currentTime = video.currentTime;
-            const remaining = duration - currentTime;
 
             const adjustedRemaining = remaining / speed;
 
