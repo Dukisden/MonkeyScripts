@@ -2,7 +2,7 @@
 // @name        Youtube Seek Buttons
 // @match       https://www.youtube.com/*
 // @grant       none
-// @version     1.2
+// @version     1.3
 // @author      Duki
 // @description Add backward/forward buttons to the player bar
 // @license     Unlicense
@@ -26,7 +26,7 @@ style.innerHTML = `
 
     #seek-button:hover {
         /* nested trick to select parent, see https://youtu.be/hiwvjsmD2iY?t=375 */
-        :has(&) #seek-container { 
+        :has(&) #seek-container {
             display: flex;
         }
     }
@@ -149,7 +149,7 @@ function addSkipBtn(skipAmount) {
 function addContainer() {
     const button = document.createElement('div');
     button.id = 'seek-button';
-    button.classList.add("ytp-play-button", "ytp-button");
+    button.classList.add("ytp-play-button", "ytp-button", "ytp-autohide-fade-transition");
 
     const span = document.createElement('span');
     span.textContent = "⤺";
