@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Youtube Speed Controller
-// @version      2.2
+// @version      2.3
 // @description  Adds quick video speed controls to the video control bar
 // @author       Duki
 // @match        https://www.youtube.com/*
@@ -90,6 +90,7 @@
     function injectController() {
         const controller = document.createElement('div');
         controller.id = 'spdctrl';
+        controller.classList.add('ytp-autohide-fade-transition');
 
         const timeDisplay = document.getElementsByClassName("ytp-time-display")[0];
         timeDisplay.after(controller);
