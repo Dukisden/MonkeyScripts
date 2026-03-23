@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         Youtube Speed Controller
-// @version      2.3
+// @version      2.4
 // @description  Adds quick video speed controls to the video control bar
 // @author       Duki
 // @match        https://www.youtube.com/*
@@ -15,7 +15,8 @@
     const speeds = [0.5, 0.8, 1, 1.15, 1.3, 1.5, 1.75, 2, 2.5, 3, 6, 10];
 
     const style = document.createElement('style');
-    style.innerHTML = `
+    style.classList.add('speed-controller');
+    style.textContent = `
         #spdctrl {
             display: flex;
             flex-flow: row nowrap;

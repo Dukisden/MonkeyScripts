@@ -2,7 +2,7 @@
 // @name        Youtube Seek Buttons
 // @match       https://www.youtube.com/*
 // @grant       none
-// @version     1.3
+// @version     1.4
 // @author      Duki
 // @description Add backward/forward buttons to the player bar
 // @license     Unlicense
@@ -12,7 +12,8 @@
 const skips = [0, 1, 5, 10];
 
 const style = document.createElement('style');
-style.innerHTML = `
+style.classList.add('seek-button');
+style.textContent = `
     #seek-button {
         margin-right: 10px;
         font-size: 30px;
